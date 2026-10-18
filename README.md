@@ -1,5 +1,7 @@
 # A7R6 Looks
 
+**中文** | [English](README.en.md)
+
 **为索尼 A7R VI（ILCE-7RM6）逆向还原的 12 种「创意外观」——Lightroom / Camera Raw 配置文件**
 
 ![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
