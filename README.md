@@ -85,7 +85,7 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 
 ```text
 SonyA7R6 Linear Base.dcp  →  C:\ProgramData\Adobe\CameraRaw\CameraProfiles\
-A7R6 *.xmp                →  %APPDATA%\Adobe\CameraRaw\Settings\
+A7R6 *.xmp                →  %APPDATA%\Adobe\CameraRaw\Settings\  比如我是C:\Users\zcy\AppData\Roaming\Adobe\CameraRaw\Settings\
 ```
 
 **macOS**
