@@ -97,7 +97,7 @@ A7R6 *.xmp                →  %APPDATA%\Adobe\CameraRaw\Settings\  比如我是
 **macOS**
 （目前mac使用会有不生效的问题，还在排查）
 ```text
-SonyA7R6 Linear Base.dcp  →  /Library/Application Support/Adobe/CameraRaw/CameraProfiles/
+SonyA7R6 Linear Base.dcp  →  ~/Library/Application Support/Adobe/CameraRaw/CameraProfiles/
 A7R6 *.xmp                →  ~/Library/Application Support/Adobe/CameraRaw/Settings/
 ```
 
