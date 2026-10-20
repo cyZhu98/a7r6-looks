@@ -81,31 +81,75 @@ Grab everything under `profiles/`: `SonyA7R6 Linear Base.dcp` and the 12 `A7R6 *
 
 ### 2. Install
 
+You need **both** file types (the look XMPs depend on the base DCP), placed in the **current user's** Adobe folders:
+
 **Windows**
 
-```text
-SonyA7R6 Linear Base.dcp  →  C:\ProgramData\Adobe\CameraRaw\CameraProfiles\
-A7R6 *.xmp                →  %APPDATA%\Adobe\CameraRaw\Settings\
-```
+| File | Destination |
+|---|---|
+| `SonyA7R6 Linear Base.dcp` | `%APPDATA%\Adobe\CameraRaw\CameraProfiles\` |
+| `A7R6 *.xmp` (12 files) | `%APPDATA%\Adobe\CameraRaw\Settings\` |
 
 **macOS**
 
-```text
-SonyA7R6 Linear Base.dcp  →  /Library/Application Support/Adobe/CameraRaw/CameraProfiles/
-A7R6 *.xmp                →  ~/Library/Application Support/Adobe/CameraRaw/Settings/
+| File | Destination |
+|---|---|
+| `SonyA7R6 Linear Base.dcp` | `~/Library/Application Support/Adobe/CameraRaw/CameraProfiles/` |
+| `A7R6 *.xmp` (12 files) | `~/Library/Application Support/Adobe/CameraRaw/Settings/` |
+
+- Create the folders if they don't exist (the `CameraProfiles` level often doesn't);
+- These are hidden folders: on Windows press `Win+R`, paste the path, hit Enter; on macOS use Finder → Go to Folder (`Cmd+Shift+G`) and type the full path **starting with `~`**;
+- ⚠️ **macOS warning**: `/Library/Application Support/...` (system) and `~/Library/Application Support/...` (user) are different folders — use the **user-level one with the `~`**;
+- Older revisions of this guide put the DCP in the system-level folder (`C:\ProgramData\...` / `/Library/...`) — that requires admin rights and is not scanned in some environments. **Use the user-level paths above.**
+
+**Or do it in one go from Terminal on macOS** (`cd` into the extracted `profiles` folder first):
+
+```bash
+mkdir -p ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles \
+         ~/Library/Application\ Support/Adobe/CameraRaw/Settings
+cp "SonyA7R6 Linear Base.dcp" ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
+cp A7R6\ *.xmp ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
+
+# verify (should show 1 dcp and 12 xmp files)
+ls ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
+ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 ```
 
-Fully quit Photoshop / Lightroom and reopen.
+### 3. Before you start, check three things
 
-### 3. Use
+1. **Camera**: these profiles only apply to **ILCE-7RM6 (A7R VI)** RAW files. With files from any other camera, the group simply won't appear in the Profile browser — that's Adobe's camera-scoping mechanism, not a failed install;
+2. **App**: works with **Lightroom Classic** and **Photoshop (Camera Raw)**. The **cloud-based Lightroom desktop does not read these local folders**;
+3. **Version**: requires Lightroom Classic 9.3+ / Camera Raw 12.3+ (mid-2020 or later).
 
-In the Profile browser pick the group **Sony A7R6**, then a look (e.g. `A7R6 ST`).
+Fully **quit and restart** Lightroom / Photoshop after copying (profiles are scanned at startup only).
+
+### 4. Use
+
+In the Profile browser, expand the group **Sony A7R6 (12)** and pick a look (e.g. `A7R6 ST`).
+
+> ⚠️ You'll also see a standalone **SonyA7R6 Linear Base** entry — that's the shared **linear base** for all 12 looks (every DCP camera profile shows up in the list; it can't be hidden). **Don't pick it.** Choosing it gives you plain decoding with no Sony look at all — flat and lifeless.
 
 - Keep white balance on **As Shot**;
 - The profile already contains the tone rendering — no additional preset needed;
 - The **Amount** slider next to the profile can fine-tune strength.
 
 > Note: the look XMPs reference the base DCP by name. Copying the XMPs without the DCP will show a "profile missing" error.
+
+### Profiles not showing up? Check in this order
+
+| Check | Why |
+|---|---|
+| Did you pick a look, not the base? | Choose `A7R6 ST` etc. inside the `Sony A7R6 (12)` group; picking the standalone `SonyA7R6 Linear Base` gives a flat image that looks "not working" |
+| Was the RAW shot on an A7R VI? | Other cameras never show these profiles — by design |
+| Is the DCP really in the folder? | Look with your own eyes: actual file, not inside a subfolder, not an alias. On macOS, `/Library` (system) ≠ `~/Library` (user) — a classic mix-up |
+| Did you fully restart? | `Cmd+Q` Lightroom/Photoshop completely, then relaunch |
+| Are you on Classic? | Cloud-based Lightroom desktop can't use local profiles |
+| Is your version new enough? | Pre-9.3 LR / pre-12.3 ACR can't read RGBTable enhanced profiles |
+| Is "store presets with catalog" on? | Preferences → Presets → **Store presets with this catalog**: when enabled, the global CameraRaw folders are bypassed — both the XMPs and the DCP must go into `<catalog folder>\Lightroom Settings\` (Settings / CameraProfiles subfolders). A mismatch produces exactly "listed but all inert" |
+
+### All 12 looks show up, but they all render identically?
+
+The XML header of the XMP loaded fine, but the embedded RGBTable isn't taking effect — **most likely an incomplete download** (each XMP is 1.7–1.9 MB; an unstable connection or a size-limited mirror can truncate the file so only the header survives). Check the file sizes (the 12 files should be 1.68–1.90 MB and **all different**); if they don't match, download again — the single Release zip is far more robust than fetching raw files one by one. If the sizes are fine and the problem persists, please open an issue with your Lightroom version.
 
 ## Sample comparison
 
