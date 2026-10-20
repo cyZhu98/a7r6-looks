@@ -79,6 +79,10 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 
 下载本仓库 `profiles/` 下的全部文件：`SonyA7R6 Linear Base.dcp` 与 12 个 `A7R6 *.xmp`。
 
+国内网盘：通过网盘分享的文件：a7r6-looks
+链接: https://pan.baidu.com/s/1QFSq0i5Gy9hkJWpof7zgeA?pwd=pcjs 提取码: pcjs 
+--来自百度网盘超级会员v4的分享
+
 ### 2. 安装
 
 **Windows**
