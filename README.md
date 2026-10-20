@@ -42,6 +42,8 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 
 最终每个外观都是一份 64³ 的确定性映射，不依赖任何训练图片。
 
+<img width="288" height="733" alt="image" src="https://github.com/user-attachments/assets/162188dc-054e-4a21-9f1e-9aaccf9de46c" />
+
 ## 包含的外观
 
 | 代号 | 名称 | 风格 |
