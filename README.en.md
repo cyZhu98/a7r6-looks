@@ -4,11 +4,14 @@
 
 [中文](README.md) | **English**
 
-![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
+![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
+![License: Profiles](https://img.shields.io/badge/License%20(profiles)-CC%20BY--NC%204.0-lightgrey.svg)
 ![Status](https://img.shields.io/badge/Status-Beta-orange.svg)
 ![Camera](https://img.shields.io/badge/Sony-A7R%20VI%20(ILCE--7RM6)-blue.svg)
 ![Looks](https://img.shields.io/badge/Looks-12%20Creative%20Looks-green.svg)
 ![Table](https://img.shields.io/badge/RGBTable-64%C2%B3%20ProPhoto-purple.svg)
+
+⚠️ **If the looks don't take effect, update Camera Raw to 18.7 or later.**
 
 > ⚠️ **Beta notice**: personal reverse-engineering project, in **beta**. **Not affiliated with Sony or Adobe.** For personal, non-commercial use only — **commercial use is prohibited**. The goal is "close to the in-camera look", not colorimetric accuracy.
 
@@ -119,7 +122,7 @@ ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
 1. **Camera**: these profiles only apply to **ILCE-7RM6 (A7R VI)** RAW files. With files from any other camera, the group simply won't appear in the Profile browser — that's Adobe's camera-scoping mechanism, not a failed install;
 2. **App**: works with **Lightroom Classic** and **Photoshop (Camera Raw)**. The **cloud-based Lightroom desktop does not read these local folders**;
-3. **Version**: requires Lightroom Classic 9.3+ / Camera Raw 12.3+ (mid-2020 or later).
+3. **Version**: requires **Camera Raw 18.7 or later**.
 
 Fully **quit and restart** Lightroom / Photoshop after copying (profiles are scanned at startup only).
 
@@ -144,7 +147,7 @@ In the Profile browser, expand the group **Sony A7R6 (12)** and pick a look (e.g
 | Is the DCP really in the folder? | Look with your own eyes: actual file, not inside a subfolder, not an alias. On macOS, `/Library` (system) ≠ `~/Library` (user) — a classic mix-up |
 | Did you fully restart? | `Cmd+Q` Lightroom/Photoshop completely, then relaunch |
 | Are you on Classic? | Cloud-based Lightroom desktop can't use local profiles |
-| Is your version new enough? | Pre-9.3 LR / pre-12.3 ACR can't read RGBTable enhanced profiles |
+| Is your version new enough? | Camera Raw 18.7 or later — earlier versions may list the looks but not apply them |
 | Is "store presets with catalog" on? | Preferences → Presets → **Store presets with this catalog**: when enabled, the global CameraRaw folders are bypassed — both the XMPs and the DCP must go into `<catalog folder>\Lightroom Settings\` (Settings / CameraProfiles subfolders). A mismatch produces exactly "listed but all inert" |
 
 ### All 12 looks show up, but they all render identically?
@@ -219,11 +222,16 @@ Approach and pipeline implementation are based on:
 
 ## License
 
-Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/):
+This repository uses **split licensing**:
 
-- ✅ Personal study, research and non-commercial use
-- ✅ Share and adapt with attribution
-- ❌ **Commercial use of any kind is prohibited**
-- ⚠️ Not affiliated with Sony or Adobe; trademarks belong to their respective owners
+| Scope | License |
+|---|---|
+| `code/**` (generator and scripts) | **MIT** |
+| `profiles/**`, `pic/**`, all documentation | **CC BY-NC 4.0** ([full text](LICENSE-CC-BY-NC-4.0.txt)) |
+
+- ✅ Code may be used, modified and redistributed (keep the copyright notice)
+- ✅ Profiles may be shared and adapted with attribution, non-commercially
+- ❌ **Commercial use of the profiles is prohibited**
+- ⚠️ Not affiliated with Sony or Adobe; third-party code and trademark notices in [THIRD-PARTY.md](THIRD-PARTY.md)
 
 **Disclaimer**: provided "as is", without warranty of any kind. Use at your own risk. If reverse engineering is restricted in your jurisdiction, comply with local law.

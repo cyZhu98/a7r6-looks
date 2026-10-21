@@ -1,0 +1,13 @@
+{
+  "gain": [
+    1.000597,
+    0.990322,
+    0.988713
+  ],
+  "offset": [
+    -0.0112,
+    -0.01,
+    -0.0123
+  ],
+  "source": "DSC00697 ST pair (LR/ACR vs IEDT), global per-channel fit; black-level + gain alignment + WB compromise from DSC00697/DSC00737 (both ~0.95)"
+}

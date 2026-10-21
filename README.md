@@ -4,7 +4,8 @@
 
 **为索尼 A7R VI（ILCE-7RM6）逆向还原的 12 种「创意外观」——Lightroom / Camera Raw 配置文件**
 
-![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
+![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
+![License: Profiles](https://img.shields.io/badge/License%20(profiles)-CC%20BY--NC%204.0-lightgrey.svg)
 ![Status](https://img.shields.io/badge/Status-Beta-orange.svg)
 ![Camera](https://img.shields.io/badge/Sony-A7R%20VI%20(ILCE--7RM6)-blue.svg)
 ![Looks](https://img.shields.io/badge/Looks-12%20Creative%20Looks-green.svg)
@@ -27,6 +28,7 @@
 - [精度验证](#精度验证)
 - [工作原理](#工作原理)
 - [已知局限](#已知局限)
+- [源码](#源码)
 - [参考与致谢](#参考与致谢)
 - [许可证](#许可证)
 
@@ -218,6 +220,17 @@ ARW（加密 SR2）
 - **机型绑定**：参数来自 A7R6 的 ARW，其他机型请勿直接套用；
 - **E 模型**：沿用针对 Camera Raw 的标定，若 Adobe 改动管线需重新标定。
 
+## 源码
+
+配置文件不是手调的，而是从 ARW 的外观参数与索尼 Edit 的常数表算出来的。生成代码在 [`code/`](code/)：
+
+- `code/acr/acr_a7r6.py` —— 写 DCP、写 XMP、组装 64³ 表（MIT）
+- `code/acr/dcp.py`、`crs_table.py`、`acr_encoding.py` —— DCP 容器与 XMP 表编码（来自 [751K/sony-a7m5-looks](https://github.com/751K/sony-a7m5-looks)，MIT，见 [THIRD-PARTY.md](THIRD-PARTY.md)）
+- `code/acr/calib.json` —— 实测的黑位/白平衡标定
+- `code/edit_binary.py` —— 从本机安装的 Edit.exe 读取常数表
+
+只开放到「ACR 侧」这一层：**索尼外观链的实现不随本仓库分发**，上游见 [sonylook/](https://github.com/751K/sony-a7m5-looks/tree/main/sonylook)。运行方法见 [code/README.md](code/README.md)。
+
 ## 参考与致谢
 
 本项目的思路与外观链实现参考自以下开源项目：
@@ -230,11 +243,16 @@ https://github.com/751K/sony-a7m5-looks
 
 ## 许可证
 
-本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh) 许可证：
+本仓库采用**分许可**：
 
-- ✅ 个人学习、研究与非商业使用
-- ✅ 署名前提下可自由分享与修改
-- ❌ **禁止任何形式的商业使用**
-- ⚠️ 与 Sony、Adobe 均无官方关联，相关商标归各自公司所有
+| 范围 | 许可 |
+|---|---|
+| `code/**`（生成器与脚本） | **MIT** |
+| `profiles/**`、`pic/**`、所有文档 | **CC BY-NC 4.0**（[全文](LICENSE-CC-BY-NC-4.0.txt)） |
+
+- ✅ 代码可自由使用、修改、再分发（保留版权声明即可）
+- ✅ 配置文件可署名分享、非商业使用
+- ❌ **配置文件禁止任何形式的商业使用**
+- ⚠️ 与 Sony、Adobe 均无官方关联；第三方代码来源与商标声明见 [THIRD-PARTY.md](THIRD-PARTY.md)
 
 **免责声明**：本项目按"现状"提供，不附带任何明示或暗示的保证。使用本配置文件产生的任何后果由使用者自行承担。若你所在地区对逆向工程有额外限制，请自行遵守当地法律。

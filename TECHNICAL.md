@@ -123,7 +123,7 @@ ACR 交给配置文件的不是线性相机 RGB，而是经其内部编码后的
 3. 复制 `A7R6 *.xmp` → `%APPDATA%\Adobe\CameraRaw\Settings\`
 4. 重启，配置文件浏览器出现 **Sony A7R6** 组，选择 `A7R6 ST` 等即可。
 
-注意：本组配置只对 ILCE-7RM6 的 RAW 显示（其他机型看不到属正常）；仅支持 Lightroom Classic / Photoshop ACR（云版 Lightroom 桌面版不读本地配置）；需要 LR Classic 9.3+ / ACR 12.3+。
+注意：本组配置只对 ILCE-7RM6 的 RAW 显示（其他机型看不到属正常）；仅支持 Lightroom Classic / Photoshop ACR（云版 Lightroom 桌面版不读本地配置）；需要 **Camera Raw 18.7 及以上**（更早版本可能列出外观但不生效）。
 
 使用时：白平衡保持原照；配置文件自带完整影调，无需再套其它预设。
 
