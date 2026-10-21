@@ -10,6 +10,8 @@
 ![Looks](https://img.shields.io/badge/Looks-12%20Creative%20Looks-green.svg)
 ![Table](https://img.shields.io/badge/RGBTable-64%C2%B3%20ProPhoto-purple.svg)
 
+⚠️ **如果不生效，请更新camera raw版本至18.7及以上**
+
 > ⚠️ **Beta 声明**：本项目为个人逆向工程成果，处于**测试阶段**，**非索尼或 Adobe 官方产品**。仅供个人学习与非商业使用，**禁止商用**。还原目标是"接近机内直出观感"，不保证色度学意义上的绝对准确。
 
 ---
@@ -129,7 +131,7 @@ ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
 1. **机型**：本组配置只对 **ILCE-7RM6（A7R VI）** 的 RAW 生效。其他机型的照片在配置文件浏览器里**不会显示**这组配置——这是 Adobe 的机型隔离机制，不是安装失败；
 2. **软件形态**：适用于 **Lightroom Classic** 和 **Photoshop（Camera Raw）**。**云版 Lightroom 桌面版不读取本地配置目录**，无法使用；
-3. **版本**：需要 Lightroom Classic 9.3+ / Camera Raw 12.3+（2020 年中以后的版本）。
+3. **版本**：需要 Camera Raw 18.7 及以上。
 
 安装后**完全退出并重启** Lightroom / Photoshop（配置文件只在启动时扫描）。
 
@@ -147,14 +149,16 @@ ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
 ### 装好后看不到配置？按顺序排查
 
+**如果不生效，请更新camera raw版本至18.7及以上**
+
 | 检查项 | 说明 |
 |---|---|
+| 版本够新吗 | ACR 18.7及以上，否则不能保证生效 |
 | 选的是不是外观本身 | 要选 `Sony A7R6 (12)` 组里的 `A7R6 ST` 等；选成 `SonyA7R6 Linear Base` 底座会灰平，像"没生效" |
 | RAW 是 A7R VI 拍的吗 | 其他机型一律不显示，属正常 |
 | DCP 真的在目录里吗 | 打开目录亲眼确认：是文件本体、不在子文件夹、不是快捷方式；拷系统级目录被 UAC 静默拦截是最常见翻车点 |
 | 完全重启了吗 | 托盘/后台的 LR、PS 也要退干净，再启动 |
 | 用的是 Classic 吗 | 云版 Lightroom 桌面版不支持本地配置文件 |
-| 版本够新吗 | LR Classic 9.3 / ACR 12.3 之前的老版本不识别 RGBTable 增强型配置文件 |
 | LR 的"随目录存储"开了吗 | 首选项→预设→**使用此目录存储预设**：若勾选，XMP 和 DCP 必须放在 `<目录>\Lightroom Settings\` 下的 Settings / CameraProfiles 子目录里（全局路径被旁路），两边不一致会出现"能列出但全失效" |
 
 ### 12 个外观能显示、但选了都一个样？
