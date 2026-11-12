@@ -74,12 +74,12 @@ CC 以完整的索尼 ST 输出为基础。先用 PROVIA 三维表反查输入�
 
 将 CC 的 XMP 放进下文的 `Settings` 目录。已装好 `SonyA7R6 Linear Base.dcp` 的用户只需添加这个 XMP。重启后在 **Sony A7R6** 组选择 `A7R6 Fuji Classic Chrome`。 [下载 Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
 
-两组均为同一张 A7R VI RAW 的 Lightroom 导出，白平衡、曝光和裁切等显影设置相同，仅切换配置文件。
+每组使用同一张 A7R VI RAW，白平衡、曝光和裁切等 Lightroom 显影设置相同，仅切换配置文件。**Classic Negative 仍在校正中，目前仅提供效果预览。**
 
-| 场景 | Sony ST | Classic Chrome |
-|---|---|---|
-| 雪山湖面 | ![雪山湖面，Sony ST](pic/classic-chrome/lake-st.jpg) | ![雪山湖面，Classic Chrome](pic/classic-chrome/lake-cc.jpg) |
-| 红花绿叶 | ![红花绿叶，Sony ST](pic/classic-chrome/flowers-st.jpg) | ![红花绿叶，Classic Chrome](pic/classic-chrome/flowers-cc.jpg) |
+| 场景 | Sony ST | Classic Chrome | Classic Negative（校正中） |
+|---|---|---|---|
+| 雪山湖面 | ![雪山湖面，Sony ST](pic/classic-chrome/lake-st.jpg) | ![雪山湖面，Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![雪山湖面，Classic Negative 预览](pic/classic-chrome/lake-neg-preview.jpg) |
+| 红花绿叶 | ![红花绿叶，Sony ST](pic/classic-chrome/flowers-st.jpg) | ![红花绿叶，Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![红花绿叶，Classic Negative 预览](pic/classic-chrome/flowers-neg-preview.jpg) |
 
 ## 设计理念
 

@@ -71,12 +71,12 @@ CC starts with the complete Sony ST rendering. It uses a 3D inverse of the PROVI
 
 Copy the CC XMP into the `Settings` folder below. If you already installed `SonyA7R6 Linear Base.dcp`, just add this XMP. After restarting, select `A7R6 Fuji Classic Chrome` in the **Sony A7R6** group. [Download the Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
 
-Each pair uses the same A7R VI RAW and the same Lightroom settings, including white balance, exposure, and crop. Only the profile changes.
+Each scene uses the same A7R VI RAW and Lightroom settings, including white balance, exposure, and crop. Only the profile changes. **Classic Negative is still being calibrated and is shown here as a preview.**
 
-| Scene | Sony ST | Classic Chrome |
-|---|---|---|
-| Lake and snowy mountains | ![Lake and snowy mountains, Sony ST](pic/classic-chrome/lake-st.jpg) | ![Lake and snowy mountains, Classic Chrome](pic/classic-chrome/lake-cc.jpg) |
-| Red blossoms and green leaves | ![Red blossoms and green leaves, Sony ST](pic/classic-chrome/flowers-st.jpg) | ![Red blossoms and green leaves, Classic Chrome](pic/classic-chrome/flowers-cc.jpg) |
+| Scene | Sony ST | Classic Chrome | Classic Negative (preview) |
+|---|---|---|---|
+| Lake and snowy mountains | ![Lake and snowy mountains, Sony ST](pic/classic-chrome/lake-st.jpg) | ![Lake and snowy mountains, Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![Lake and snowy mountains, Classic Negative preview](pic/classic-chrome/lake-neg-preview.jpg) |
+| Red blossoms and green leaves | ![Red blossoms and green leaves, Sony ST](pic/classic-chrome/flowers-st.jpg) | ![Red blossoms and green leaves, Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![Red blossoms and green leaves, Classic Negative preview](pic/classic-chrome/flowers-neg-preview.jpg) |
 
 ## Design
 
