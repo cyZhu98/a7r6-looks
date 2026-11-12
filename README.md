@@ -4,8 +4,10 @@
 
 **为索尼 A7R VI（ILCE-7RM6）逆向还原的 12 种「创意外观」——Lightroom / Camera Raw 配置文件**
 
+另提供一个附加外观 [Classic Chrome](#附加外观-classic-chrome)。
+
 ![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
-![License: Profiles](https://img.shields.io/badge/License%20(profiles)-CC%20BY--NC%204.0-lightgrey.svg)
+![License: Sony profiles](https://img.shields.io/badge/License%20(Sony%20profiles)-CC%20BY--NC%204.0-lightgrey.svg)
 ![Status](https://img.shields.io/badge/Status-Beta-orange.svg)
 ![Camera](https://img.shields.io/badge/Sony-A7R%20VI%20(ILCE--7RM6)-blue.svg)
 ![Looks](https://img.shields.io/badge/Looks-12%20Creative%20Looks-green.svg)
@@ -21,6 +23,7 @@
 
 - [项目背景](#项目背景)
 - [包含的外观](#包含的外观)
+- [附加外观 Classic Chrome](#附加外观-classic-chrome)
 - [设计理念](#设计理念)
 - [主要特性](#主要特性)
 - [安装与使用](#安装与使用)
@@ -65,6 +68,19 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 | FL2 | Film 2 | 电影感二代，淡雅 |
 | FL3 | Film 3 | 电影感三代，暖调 |
 
+## 附加外观 Classic Chrome
+
+CC 以完整的索尼 ST 输出为基础。先用 PROVIA 三维表反查输入，再计算同一输入在 Classic Chrome 与 PROVIA 之间的色彩和影调差值，并将差值加到 ST 上。最终将组合映射写入 64³ XMP 色表。参考表由 Aaron Buchler（abpy）基于富士 Camera Matching 重建。 [参考项目与版本](https://github.com/abpy/FujifilmCameraProfiles/tree/b5a1f16abfb2759b337c83d69d9dc49470e7e518)
+
+将 CC 的 XMP 放进下文的 `Settings` 目录。已装好 `SonyA7R6 Linear Base.dcp` 的用户只需添加这个 XMP。重启后在 **Sony A7R6** 组选择 `A7R6 Fuji Classic Chrome`。 [下载 Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
+
+两组均为同一张 A7R VI RAW 的 Lightroom 导出，白平衡、曝光和裁切等显影设置相同，仅切换配置文件。
+
+| 场景 | Sony ST | Classic Chrome |
+|---|---|---|
+| 雪山湖面 | ![雪山湖面，Sony ST](pic/classic-chrome/lake-st.jpg) | ![雪山湖面，Classic Chrome](pic/classic-chrome/lake-cc.jpg) |
+| 红花绿叶 | ![红花绿叶，Sony ST](pic/classic-chrome/flowers-st.jpg) | ![红花绿叶，Classic Chrome](pic/classic-chrome/flowers-cc.jpg) |
+
 ## 设计理念
 
 - **算法级还原，而非拟合**：配置文件是外观链的离散化求值，参数与索尼一致，因此换场景不需要重新训练；
@@ -83,7 +99,7 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 
 ### 1. 下载
 
-下载本仓库 `profiles/` 下的全部文件：`SonyA7R6 Linear Base.dcp` 与 12 个 `A7R6 *.xmp`。推荐直接下 Release 的整包 zip。
+从 `profiles/` 下载 `SonyA7R6 Linear Base.dcp` 和要使用的外观 XMP。12 个索尼外观也可以从 Release 整包下载，CC 的单独下载链接见上文。
 
 国内网盘：通过网盘分享的文件：a7r6-looks
 链接: https://pan.baidu.com/s/1QFSq0i5Gy9hkJWpof7zgeA?pwd=pcjs 提取码: pcjs 
@@ -98,7 +114,7 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 | 文件 | 目标目录 |
 |---|---|
 | `SonyA7R6 Linear Base.dcp` | `%APPDATA%\Adobe\CameraRaw\CameraProfiles\` |
-| `A7R6 *.xmp`（12 个） | `%APPDATA%\Adobe\CameraRaw\Settings\` |
+| 外观 XMP | `%APPDATA%\Adobe\CameraRaw\Settings\` |
 
 > 实例：`%APPDATA%` 展开后就是 `C:\Users\<你的用户名>\AppData\Roaming\...`，比如我的 Settings 实际路径是 `C:\Users\zcy\AppData\Roaming\Adobe\CameraRaw\Settings\`。
 
@@ -107,7 +123,7 @@ A7R VI 机型较新，Adobe 至今没有提供它的相机匹配（Camera Matchi
 | 文件 | 目标目录 |
 |---|---|
 | `SonyA7R6 Linear Base.dcp` | `~/Library/Application Support/Adobe/CameraRaw/CameraProfiles/` |
-| `A7R6 *.xmp`（12 个） | `~/Library/Application Support/Adobe/CameraRaw/Settings/` |
+| 外观 XMP | `~/Library/Application Support/Adobe/CameraRaw/Settings/` |
 
 > （目前 mac 有用户反馈不生效，还在排查中——遇到请先看下方排查清单）
 
@@ -124,7 +140,7 @@ mkdir -p ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles \
 cp "SonyA7R6 Linear Base.dcp" ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
 cp A7R6\ *.xmp ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
-# 验证（应看到 1 个 dcp 和 12 个 xmp）
+# 验证底座 DCP 和所选 XMP
 ls ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
 ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 ```
@@ -139,13 +155,13 @@ ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
 ### 4. 使用
 
-在基本面板的**配置文件浏览器**中展开分组 **Sony A7R6 (12)**，选择具体外观（如 `A7R6 ST`）。
+在基本面板的**配置文件浏览器**中展开分组 **Sony A7R6**，选择具体外观（如 `A7R6 ST`）。
 
-> ⚠️ 列表里还会单独出现一个 **SonyA7R6 Linear Base**——那是 12 个外观共用的**线性底座**（所有 DCP 相机配置都会显示在列表里，无法隐藏），**不要选它**。选了它等于只解码、没上任何索尼外观，画面会灰平。
+> ⚠️ 列表里还会单独出现一个 **SonyA7R6 Linear Base**——那是外观共用的**线性底座**（所有 DCP 相机配置都会显示在列表里，无法隐藏），**不要选它**。选了它等于只解码、没上任何索尼外观，画面会灰平。
 
 - 白平衡保持**原照**；
 - 配置文件已含影调，无需再套其它预设；
-- 想微调可用配置文件旁的**数量**滑杆。
+- 支持**数量**滑杆的外观可用它微调强度。
 
 > 提示：本项目的配置文件是"外观 + 线性底座"成套使用的，单独拷 XMP 不拷 DCP 会报缺少配置文件。
 
@@ -156,7 +172,7 @@ ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 | 检查项 | 说明 |
 |---|---|
 | 版本够新吗 | ACR 18.7及以上，否则不能保证生效 |
-| 选的是不是外观本身 | 要选 `Sony A7R6 (12)` 组里的 `A7R6 ST` 等；选成 `SonyA7R6 Linear Base` 底座会灰平，像"没生效" |
+| 选的是不是外观本身 | 要选 `Sony A7R6` 组里的 `A7R6 ST` 等；选成 `SonyA7R6 Linear Base` 底座会灰平，像"没生效" |
 | RAW 是 A7R VI 拍的吗 | 其他机型一律不显示，属正常 |
 | DCP 真的在目录里吗 | 打开目录亲眼确认：是文件本体、不在子文件夹、不是快捷方式；拷系统级目录被 UAC 静默拦截是最常见翻车点 |
 | 完全重启了吗 | 托盘/后台的 LR、PS 也要退干净，再启动 |
@@ -248,7 +264,8 @@ https://github.com/751K/sony-a7m5-looks
 | 范围 | 许可 |
 |---|---|
 | `code/**`（生成器与脚本） | **MIT** |
-| `profiles/**`、`pic/**`、所有文档 | **CC BY-NC 4.0**（[全文](LICENSE-CC-BY-NC-4.0.txt)） |
+| 12 个索尼外观 XMP、线性底座 DCP、`pic/**`、文档 | **CC BY-NC 4.0**（[全文](LICENSE-CC-BY-NC-4.0.txt)） |
+| `profiles/A7R6 Fuji Classic Chrome.xmp` | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**（[来源与修改](THIRD-PARTY.md)） |
 
 - ✅ 代码可自由使用、修改、再分发（保留版权声明即可）
 - ✅ 配置文件可署名分享、非商业使用

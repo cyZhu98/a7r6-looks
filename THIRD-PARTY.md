@@ -21,6 +21,12 @@ Licensed under the MIT License
 https://github.com/751K/sony-a7m5-looks/blob/main/LICENSE
 ```
 
+## Classic Chrome 外观参考
+
+`profiles/A7R6 Fuji Classic Chrome.xmp` 改编自 Aaron Buchler（abpy）的 PROVIA 和 Classic Chrome sRGB LUT。源表来自其 Fujifilm Camera Matching 重建，锁定在提交 `b5a1f16abfb2759b337c83d69d9dc49470e7e518`。 [源项目与许可声明](https://github.com/abpy/FujifilmCameraProfiles/tree/b5a1f16abfb2759b337c83d69d9dc49470e7e518)
+
+本项目对 PROVIA 求三维逆变换，将 Classic Chrome 相对 PROVIA 的色彩和影调变化应用到 Sony ST，并转换为 Adobe XMP 色表格式。该 XMP 按 **CC BY-NC-SA 4.0** 提供，署名须保留 Aaron Buchler（abpy）及其项目来源。 [许可全文](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
+
 ## 未包含的内容
 
 本仓库**不包含**任何 Sony 或 Adobe 的二进制程序、安装包，也不包含从这些程序中提取的常数表数据文件。

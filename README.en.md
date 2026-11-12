@@ -4,8 +4,10 @@
 
 [中文](README.md) | **English**
 
+Includes an optional [Classic Chrome profile](#bonus-look-classic-chrome).
+
 ![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
-![License: Profiles](https://img.shields.io/badge/License%20(profiles)-CC%20BY--NC%204.0-lightgrey.svg)
+![License: Sony profiles](https://img.shields.io/badge/License%20(Sony%20profiles)-CC%20BY--NC%204.0-lightgrey.svg)
 ![Status](https://img.shields.io/badge/Status-Beta-orange.svg)
 ![Camera](https://img.shields.io/badge/Sony-A7R%20VI%20(ILCE--7RM6)-blue.svg)
 ![Looks](https://img.shields.io/badge/Looks-12%20Creative%20Looks-green.svg)
@@ -21,6 +23,7 @@
 
 - [Background](#background)
 - [Included looks](#included-looks)
+- [Bonus look Classic Chrome](#bonus-look-classic-chrome)
 - [Design](#design)
 - [Features](#features)
 - [Installation](#installation)
@@ -62,6 +65,19 @@ Each look is therefore a deterministic 64³ mapping — no training images invol
 | FL2 | Film 2 | Gentle cinematic |
 | FL3 | Film 3 | Warm cinematic |
 
+## Bonus look Classic Chrome
+
+CC starts with the complete Sony ST rendering. It uses a 3D inverse of the PROVIA table to find a reference input, then adds the color and tone difference between Classic Chrome and PROVIA at that input to ST. The combined mapping is stored as a 64³ XMP table. The reference tables come from Aaron Buchler’s (abpy) reconstruction of Fujifilm Camera Matching. [Reference project and revision](https://github.com/abpy/FujifilmCameraProfiles/tree/b5a1f16abfb2759b337c83d69d9dc49470e7e518)
+
+Copy the CC XMP into the `Settings` folder below. If you already installed `SonyA7R6 Linear Base.dcp`, just add this XMP. After restarting, select `A7R6 Fuji Classic Chrome` in the **Sony A7R6** group. [Download the Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
+
+Each pair uses the same A7R VI RAW and the same Lightroom settings, including white balance, exposure, and crop. Only the profile changes.
+
+| Scene | Sony ST | Classic Chrome |
+|---|---|---|
+| Lake and snowy mountains | ![Lake and snowy mountains, Sony ST](pic/classic-chrome/lake-st.jpg) | ![Lake and snowy mountains, Classic Chrome](pic/classic-chrome/lake-cc.jpg) |
+| Red blossoms and green leaves | ![Red blossoms and green leaves, Sony ST](pic/classic-chrome/flowers-st.jpg) | ![Red blossoms and green leaves, Classic Chrome](pic/classic-chrome/flowers-cc.jpg) |
+
 ## Design
 
 - **Algorithm-level, not curve fitting**: the profiles are a discretisation of Sony's look pipeline, so they need no per-scene retraining;
@@ -80,7 +96,7 @@ Each look is therefore a deterministic 64³ mapping — no training images invol
 
 ### 1. Download
 
-Grab everything under `profiles/`: `SonyA7R6 Linear Base.dcp` and the 12 `A7R6 *.xmp` files.
+Download `SonyA7R6 Linear Base.dcp` and your chosen look XMPs from `profiles/`. The release bundle includes the 12 Sony looks. CC is available from the link above.
 
 ### 2. Install
 
@@ -91,14 +107,14 @@ You need **both** file types (the look XMPs depend on the base DCP), placed in t
 | File | Destination |
 |---|---|
 | `SonyA7R6 Linear Base.dcp` | `%APPDATA%\Adobe\CameraRaw\CameraProfiles\` |
-| `A7R6 *.xmp` (12 files) | `%APPDATA%\Adobe\CameraRaw\Settings\` |
+| Look XMPs | `%APPDATA%\Adobe\CameraRaw\Settings\` |
 
 **macOS**
 
 | File | Destination |
 |---|---|
 | `SonyA7R6 Linear Base.dcp` | `~/Library/Application Support/Adobe/CameraRaw/CameraProfiles/` |
-| `A7R6 *.xmp` (12 files) | `~/Library/Application Support/Adobe/CameraRaw/Settings/` |
+| Look XMPs | `~/Library/Application Support/Adobe/CameraRaw/Settings/` |
 
 - Create the folders if they don't exist (the `CameraProfiles` level often doesn't);
 - These are hidden folders: on Windows press `Win+R`, paste the path, hit Enter; on macOS use Finder → Go to Folder (`Cmd+Shift+G`) and type the full path **starting with `~`**;
@@ -113,7 +129,7 @@ mkdir -p ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles \
 cp "SonyA7R6 Linear Base.dcp" ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
 cp A7R6\ *.xmp ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 
-# verify (should show 1 dcp and 12 xmp files)
+# verify the base DCP and your chosen XMPs
 ls ~/Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
 ls ~/Library/Application\ Support/Adobe/CameraRaw/Settings/
 ```
@@ -128,13 +144,13 @@ Fully **quit and restart** Lightroom / Photoshop after copying (profiles are sca
 
 ### 4. Use
 
-In the Profile browser, expand the group **Sony A7R6 (12)** and pick a look (e.g. `A7R6 ST`).
+In the Profile browser, expand the group **Sony A7R6** and pick a look (e.g. `A7R6 ST`).
 
-> ⚠️ You'll also see a standalone **SonyA7R6 Linear Base** entry — that's the shared **linear base** for all 12 looks (every DCP camera profile shows up in the list; it can't be hidden). **Don't pick it.** Choosing it gives you plain decoding with no Sony look at all — flat and lifeless.
+> ⚠️ You'll also see a standalone **SonyA7R6 Linear Base** entry — that's the shared **linear base** for the looks (every DCP camera profile shows up in the list; it can't be hidden). **Don't pick it.** Choosing it gives you plain decoding with no Sony look at all — flat and lifeless.
 
 - Keep white balance on **As Shot**;
 - The profile already contains the tone rendering — no additional preset needed;
-- The **Amount** slider next to the profile can fine-tune strength.
+- Use the **Amount** slider to fine-tune profiles that support it.
 
 > Note: the look XMPs reference the base DCP by name. Copying the XMPs without the DCP will show a "profile missing" error.
 
@@ -142,7 +158,7 @@ In the Profile browser, expand the group **Sony A7R6 (12)** and pick a look (e.g
 
 | Check | Why |
 |---|---|
-| Did you pick a look, not the base? | Choose `A7R6 ST` etc. inside the `Sony A7R6 (12)` group; picking the standalone `SonyA7R6 Linear Base` gives a flat image that looks "not working" |
+| Profile selection | Choose `A7R6 ST` or another look inside the `Sony A7R6` group. The standalone linear base gives a flat image. |
 | Was the RAW shot on an A7R VI? | Other cameras never show these profiles — by design |
 | Is the DCP really in the folder? | Look with your own eyes: actual file, not inside a subfolder, not an alias. On macOS, `/Library` (system) ≠ `~/Library` (user) — a classic mix-up |
 | Did you fully restart? | `Cmd+Q` Lightroom/Photoshop completely, then relaunch |
@@ -227,7 +243,8 @@ This repository uses **split licensing**:
 | Scope | License |
 |---|---|
 | `code/**` (generator and scripts) | **MIT** |
-| `profiles/**`, `pic/**`, all documentation | **CC BY-NC 4.0** ([full text](LICENSE-CC-BY-NC-4.0.txt)) |
+| 12 Sony look XMPs, linear base DCP, `pic/**`, and documentation | **CC BY-NC 4.0** ([full text](LICENSE-CC-BY-NC-4.0.txt)) |
+| `profiles/A7R6 Fuji Classic Chrome.xmp` | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** ([source and changes](THIRD-PARTY.md)) |
 
 - ✅ Code may be used, modified and redistributed (keep the copyright notice)
 - ✅ Profiles may be shared and adapted with attribution, non-commercially
