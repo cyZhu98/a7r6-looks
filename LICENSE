@@ -4,7 +4,7 @@
 |---|---|
 | `code/**`（生成器与脚本） | **MIT License**（全文见下） |
 | 12 个索尼外观 XMP、线性底座 DCP、`pic/**`、文档 | **CC BY-NC 4.0**，全文见 `LICENSE-CC-BY-NC-4.0.txt` |
-| `profiles/A7R6 Fuji Classic Chrome.xmp` | **CC BY-NC-SA 4.0**，许可见 https://creativecommons.org/licenses/by-nc-sa/4.0/ |
+| Classic Chrome 和 Classic Negative XMP | **CC BY-NC-SA 4.0**，许可见 https://creativecommons.org/licenses/by-nc-sa/4.0/ |
 
 第三方代码见 `THIRD-PARTY.md`。商标与"未包含索尼/Adobe 二进制"的声明同样见该文件。
 

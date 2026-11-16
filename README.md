@@ -4,7 +4,7 @@
 
 **为索尼 A7R VI（ILCE-7RM6）逆向还原的 12 种「创意外观」——Lightroom / Camera Raw 配置文件**
 
-另提供一个附加外观 [Classic Chrome](#附加外观-classic-chrome)。
+另提供两个附加外观 [Classic Chrome](#附加外观-classic-chrome) 和 [Classic Negative](#附加外观-classic-negative)。
 
 ![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
 ![License: Sony profiles](https://img.shields.io/badge/License%20(Sony%20profiles)-CC%20BY--NC%204.0-lightgrey.svg)
@@ -24,6 +24,7 @@
 - [项目背景](#项目背景)
 - [包含的外观](#包含的外观)
 - [附加外观 Classic Chrome](#附加外观-classic-chrome)
+- [附加外观 Classic Negative](#附加外观-classic-negative)
 - [设计理念](#设计理念)
 - [主要特性](#主要特性)
 - [安装与使用](#安装与使用)
@@ -74,12 +75,16 @@ CC 以完整的索尼 ST 输出为基础。先用 PROVIA 三维表反查输入�
 
 将 CC 的 XMP 放进下文的 `Settings` 目录。已装好 `SonyA7R6 Linear Base.dcp` 的用户只需添加这个 XMP。重启后在 **Sony A7R6** 组选择 `A7R6 Fuji Classic Chrome`。 [下载 Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
 
-每组使用同一张 A7R VI RAW，白平衡、曝光和裁切等 Lightroom 显影设置相同，仅切换配置文件。**Classic Negative 仍在校正中，目前仅提供效果预览。**
+## 附加外观 Classic Negative
 
-| 场景 | Sony ST | Classic Chrome | Classic Negative（校正中） |
+Classic Negative 同样以完整 Sony ST 为基础，使用 Aaron Buchler（abpy）的 PROVIA → Classic Negative 三维转换表，将颜色和影调变化写入 64³ XMP 色表。安装方式与 CC 相同。重启后在 **Sony A7R6** 组选用 `A7R6 Fuji Classic Negative`。 [下载 Classic Negative XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Negative.xmp)
+
+每组使用同一张 A7R VI RAW，白平衡、曝光和裁切等 Lightroom 显影设置相同，仅切换配置文件。
+
+| 场景 | Sony ST | Classic Chrome | Classic Negative |
 |---|---|---|---|
-| 雪山湖面 | ![雪山湖面，Sony ST](pic/classic-chrome/lake-st.jpg) | ![雪山湖面，Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![雪山湖面，Classic Negative 预览](pic/classic-chrome/lake-neg-preview.jpg) |
-| 红花绿叶 | ![红花绿叶，Sony ST](pic/classic-chrome/flowers-st.jpg) | ![红花绿叶，Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![红花绿叶，Classic Negative 预览](pic/classic-chrome/flowers-neg-preview.jpg) |
+| 雪山湖面 | ![雪山湖面，Sony ST](pic/classic-chrome/lake-st.jpg) | ![雪山湖面，Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![雪山湖面，Classic Negative](pic/classic-chrome/lake-neg-preview.jpg) |
+| 红花绿叶 | ![红花绿叶，Sony ST](pic/classic-chrome/flowers-st.jpg) | ![红花绿叶，Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![红花绿叶，Classic Negative](pic/classic-chrome/flowers-neg-preview.jpg) |
 
 ## 设计理念
 
@@ -99,7 +104,7 @@ CC 以完整的索尼 ST 输出为基础。先用 PROVIA 三维表反查输入�
 
 ### 1. 下载
 
-从 `profiles/` 下载 `SonyA7R6 Linear Base.dcp` 和要使用的外观 XMP。12 个索尼外观也可以从 Release 整包下载，CC 的单独下载链接见上文。
+从 `profiles/` 下载 `SonyA7R6 Linear Base.dcp` 和要使用的外观 XMP。12 个索尼外观也可以从 Release 整包下载，Classic Chrome 和 Classic Negative 的单独下载链接见上文。
 
 国内网盘：通过网盘分享的文件：a7r6-looks
 链接: https://pan.baidu.com/s/1QFSq0i5Gy9hkJWpof7zgeA?pwd=pcjs 提取码: pcjs 
@@ -265,7 +270,7 @@ https://github.com/751K/sony-a7m5-looks
 |---|---|
 | `code/**`（生成器与脚本） | **MIT** |
 | 12 个索尼外观 XMP、线性底座 DCP、`pic/**`、文档 | **CC BY-NC 4.0**（[全文](LICENSE-CC-BY-NC-4.0.txt)） |
-| `profiles/A7R6 Fuji Classic Chrome.xmp` | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**（[来源与修改](THIRD-PARTY.md)） |
+| Classic Chrome 和 Classic Negative XMP | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**（[来源与修改](THIRD-PARTY.md)） |
 
 - ✅ 代码可自由使用、修改、再分发（保留版权声明即可）
 - ✅ 配置文件可署名分享、非商业使用

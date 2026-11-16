@@ -4,7 +4,7 @@
 
 [中文](README.md) | **English**
 
-Includes an optional [Classic Chrome profile](#bonus-look-classic-chrome).
+Also includes optional [Classic Chrome](#bonus-look-classic-chrome) and [Classic Negative](#bonus-look-classic-negative) profiles.
 
 ![License: Code](https://img.shields.io/badge/License%20(code)-MIT-blue.svg)
 ![License: Sony profiles](https://img.shields.io/badge/License%20(Sony%20profiles)-CC%20BY--NC%204.0-lightgrey.svg)
@@ -24,6 +24,7 @@ Includes an optional [Classic Chrome profile](#bonus-look-classic-chrome).
 - [Background](#background)
 - [Included looks](#included-looks)
 - [Bonus look Classic Chrome](#bonus-look-classic-chrome)
+- [Bonus look Classic Negative](#bonus-look-classic-negative)
 - [Design](#design)
 - [Features](#features)
 - [Installation](#installation)
@@ -71,12 +72,16 @@ CC starts with the complete Sony ST rendering. It uses a 3D inverse of the PROVI
 
 Copy the CC XMP into the `Settings` folder below. If you already installed `SonyA7R6 Linear Base.dcp`, just add this XMP. After restarting, select `A7R6 Fuji Classic Chrome` in the **Sony A7R6** group. [Download the Classic Chrome XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Chrome.xmp)
 
-Each scene uses the same A7R VI RAW and Lightroom settings, including white balance, exposure, and crop. Only the profile changes. **Classic Negative is still being calibrated and is shown here as a preview.**
+## Bonus look Classic Negative
 
-| Scene | Sony ST | Classic Chrome | Classic Negative (preview) |
+Classic Negative uses the complete Sony ST rendering as its base and applies Aaron Buchler’s (abpy) PROVIA-to-Classic Negative 3D conversion. The combined color and tone mapping is stored in a 64³ XMP table. Install it the same way as CC, then select `A7R6 Fuji Classic Negative` in the **Sony A7R6** group after restarting. [Download the Classic Negative XMP](https://raw.githubusercontent.com/cyZhu98/a7r6-looks/main/profiles/A7R6%20Fuji%20Classic%20Negative.xmp)
+
+Each scene uses the same A7R VI RAW and Lightroom settings, including white balance, exposure, and crop. Only the profile changes.
+
+| Scene | Sony ST | Classic Chrome | Classic Negative |
 |---|---|---|---|
-| Lake and snowy mountains | ![Lake and snowy mountains, Sony ST](pic/classic-chrome/lake-st.jpg) | ![Lake and snowy mountains, Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![Lake and snowy mountains, Classic Negative preview](pic/classic-chrome/lake-neg-preview.jpg) |
-| Red blossoms and green leaves | ![Red blossoms and green leaves, Sony ST](pic/classic-chrome/flowers-st.jpg) | ![Red blossoms and green leaves, Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![Red blossoms and green leaves, Classic Negative preview](pic/classic-chrome/flowers-neg-preview.jpg) |
+| Lake and snowy mountains | ![Lake and snowy mountains, Sony ST](pic/classic-chrome/lake-st.jpg) | ![Lake and snowy mountains, Classic Chrome](pic/classic-chrome/lake-cc.jpg) | ![Lake and snowy mountains, Classic Negative](pic/classic-chrome/lake-neg-preview.jpg) |
+| Red blossoms and green leaves | ![Red blossoms and green leaves, Sony ST](pic/classic-chrome/flowers-st.jpg) | ![Red blossoms and green leaves, Classic Chrome](pic/classic-chrome/flowers-cc.jpg) | ![Red blossoms and green leaves, Classic Negative](pic/classic-chrome/flowers-neg-preview.jpg) |
 
 ## Design
 
@@ -96,7 +101,7 @@ Each scene uses the same A7R VI RAW and Lightroom settings, including white bala
 
 ### 1. Download
 
-Download `SonyA7R6 Linear Base.dcp` and your chosen look XMPs from `profiles/`. The release bundle includes the 12 Sony looks. CC is available from the link above.
+Download `SonyA7R6 Linear Base.dcp` and your chosen look XMPs from `profiles/`. The release bundle includes the 12 Sony looks. Classic Chrome and Classic Negative are available from the links above.
 
 ### 2. Install
 
@@ -244,7 +249,7 @@ This repository uses **split licensing**:
 |---|---|
 | `code/**` (generator and scripts) | **MIT** |
 | 12 Sony look XMPs, linear base DCP, `pic/**`, and documentation | **CC BY-NC 4.0** ([full text](LICENSE-CC-BY-NC-4.0.txt)) |
-| `profiles/A7R6 Fuji Classic Chrome.xmp` | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** ([source and changes](THIRD-PARTY.md)) |
+| Classic Chrome and Classic Negative XMPs | **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** ([source and changes](THIRD-PARTY.md)) |
 
 - ✅ Code may be used, modified and redistributed (keep the copyright notice)
 - ✅ Profiles may be shared and adapted with attribution, non-commercially
